@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ITeacherDao">
+	<select id="getTeacherID" resultType="com.bean.Teacher">
+		select * from teacher where teacher_id = #{teacherid}
+	</select>
+	<select id="getTeacher" resultType="com.bean.Teacher">
+		select * from teacher
+	</select>
+	<delete id="deleteTeacher">
+	    delete from teacher  where teacher_id = #{teacherid}
+	</delete>
+	<insert id="addTeacher" parameterType="com.bean.Teacher">
+	    insert into teacher values 
+	    (#{teacher_id},#{name},#{gender},#{birth},#{degree},#{tittle},#{depart})
+	</insert>
+</mapper>

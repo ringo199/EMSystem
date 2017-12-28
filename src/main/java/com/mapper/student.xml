@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IStudentDao">
+	<select id="getStudentID" resultType="com.bean.Student">
+		select * from student where stu_id = #{studentid}
+	</select>
+	<select id="getStudent" resultType="com.bean.Student">
+		select * from student
+	</select>
+	<delete id="deleteStudent">
+	    delete from student  where stu_id = #{studentid}
+	</delete>
+	<insert id="addStudent" parameterType="com.bean.Student">
+	    insert into student 
+	    values
+	    (#{stu_id},#{name},#{gender},#{birth},#{grade},#{depart})
+	</insert>
+	<select id="">
+	select s.stu_id, s.name ,c.name,c.type,sc.markfrom
+	(select * from course c join schedule sc  on (sc.courseid=c.course_id))scc 
+	join student s on(scc.studentid=s.stu_id) 
+	where course_id="A1001";
+	</select>
+</mapper>

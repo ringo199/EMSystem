@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ICourseDao">
+	<select id="getCourse" resultType="com.bean.Course">
+		select * from course 
+	</select>
+	<select id="findCourse" resultType="com.bean.Course">
+		select * from  course  where course_id = #{id}
+	</select>
+	<insert id="addCourse"  parameterType="com.bean.Course">
+	    insert into course 
+	    values 
+	    (#{course_id},#{name},#{type},#{teacherid},#{time},#{weeks},#{score})
+	</insert>
+	<delete id="deleteCourse">
+	    delete from course  where course_id = #{id}
+	</delete>
+	<select id="getTeacherCourse" resultType="com.bean.Course">
+	    select * from  course  where teacherid = #{teacherid}
+	</select>
+</mapper>
+
